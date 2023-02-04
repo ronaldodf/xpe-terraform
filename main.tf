@@ -34,7 +34,7 @@ resource "aws_iam_group_membership" "so-adm" {
   group = aws_iam_group.group.name
 }
 
-resource "aws_iam_group" "so-adm" {
+resource "aws_iam_group" "group" {
   name = "so-adm"
 }
 
@@ -56,7 +56,7 @@ resource "aws_iam_group_membership" "db-adm" {
   group = aws_iam_group.group.name
 }
 
-resource "aws_iam_group" "db-adm" {
+resource "aws_iam_group" "group" {
   name = "db-adm"
 }
 
