@@ -1,8 +1,7 @@
-# xpe-terraform
-MBA XPE Cloud Computing
+# MBA XPE Cloud Computing
 
 ## Finalidade
-Provisionar a insfraestrutura necessária ferente ao MBA e efetuar a gestão de todo o ciclo de vida.
+Provisionar a insfraestrutura necessária referente ao MBA e efetuar a gestão de todo o ciclo de vida.
 
 ## Requisitos
 HashiCorp Terraform: https://developer.hashicorp.com/terraform/downloads
