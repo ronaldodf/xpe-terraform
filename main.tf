@@ -46,7 +46,7 @@ resource "aws_iam_user" "user_two" {
   name = "user2"
 }
 
-resource "aws_iam_group_membership" "db-adm" {
+/* resource "aws_iam_group_membership" "db-adm" {
   name = "db-adm-member"
 
   users = [
@@ -63,6 +63,6 @@ resource "aws_iam_group" "group" {
 
 resource "aws_iam_user" "user_one" {
   name = "user3"
-}
+} */
 
 # Cria os usuários user1, user2 e user3
