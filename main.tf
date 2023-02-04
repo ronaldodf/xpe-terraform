@@ -31,10 +31,10 @@ resource "aws_iam_group_membership" "so-adm" {
     aws_iam_user.user_two.name,
   ]
 
-  group = aws_iam_group.group.name
+  group = aws_iam_group.group_one.name
 }
 
-resource "aws_iam_group" "group" {
+resource "aws_iam_group" "group_one" {
   name = "so-adm"
 }
 
@@ -53,10 +53,10 @@ resource "aws_iam_group_membership" "db-adm" {
     aws_iam_user.user_three.name,
   ]
 
-  group = aws_iam_group.group.name
+  group = aws_iam_group.group_two.name
 }
 
-resource "aws_iam_group" "group" {
+resource "aws_iam_group" "group_two" {
   name = "db-adm"
 }
 
