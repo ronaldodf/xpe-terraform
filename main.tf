@@ -17,7 +17,7 @@ terraform {
 # no arquivo credentials do diretório .aws que está configurado no .gitignore.
 provider "aws" {
   region = "us-east-1"
-  shared_credentials_files = [".aws/credentials"]
+  shared_credentials_files = ["~/.aws/credentials"]
 }
 
 # Criar os recursos do trabalho prático do módulo1.
