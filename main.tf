@@ -1,6 +1,7 @@
 # Para simplificar, toda a infraestrutura será definida em um único arquivo.
 # Mas a boa prática, para melhor entendimento e organização do código,
 # seria criar arquivos específicos para cada componente de infra.
+###########
 
 # Define o provedor AWS maior ou igual a versão 4.53.0.
 terraform {
@@ -15,12 +16,20 @@ terraform {
 # Configura o provedor AWS.
 # Para evitar a exposição das credenciais de acesso à AWS, adicionei os dados
 # no arquivo credentials do diretório .aws que está configurado no .gitignore.
+# Por questões de custo, deixei configurado a região Norte da Virgínia.
 provider "aws" {
   region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
+  default_tags {
+    tags {
+      Curso = "XPe"
+    }
+  }
 }
 
 # Criar os recursos do trabalho prático do módulo1.
+###########
+
 # Cria os grupos so-adm e db-adm e os usuários user1,
 # user2 e user3.
 resource "aws_iam_group_membership" "so-adm" {
@@ -75,3 +84,4 @@ resource "aws_iam_group_policy_attachment" "attach_policy_group_two" {
   group      = aws_iam_group.group_two.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
+
