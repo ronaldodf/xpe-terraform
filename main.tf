@@ -21,7 +21,8 @@ provider "aws" {
 }
 
 # Criar os recursos do trabalho prático do módulo1.
-# Cria os grupos so-adm e db-adm
+# Cria os grupos so-adm e db-adm e os usuários user1,
+# user2 e user3.
 resource "aws_iam_group_membership" "so-adm" {
   name = "so-adm-member"
 
@@ -43,6 +44,25 @@ resource "aws_iam_user" "user_one" {
 
 resource "aws_iam_user" "user_two" {
   name = "user2"
+}
+
+resource "aws_iam_group_membership" "db-adm" {
+  name = "db-adm-member"
+
+  users = [
+    aws_iam_user.user_one.name,
+    aws_iam_user.user_two.name,
+  ]
+
+  group = aws_iam_group.group.name
+}
+
+resource "aws_iam_group" "group" {
+  name = "db-adm"
+}
+
+resource "aws_iam_user" "user_one" {
+  name = "user3"
 }
 
 # Cria os usuários user1, user2 e user3
