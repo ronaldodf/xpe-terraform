@@ -16,7 +16,7 @@ terraform {
 # Para evitar a exposição das credenciais de acesso à AWS, adicionei os dados
 # no arquivo credentials do diretório .aws que está configurado no .gitignore.
 provider "aws" {
-  region = "us-east-1"
+  region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
 }
 
