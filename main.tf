@@ -22,22 +22,27 @@ provider "aws" {
 
 # Criar os recursos do trabalho prático do módulo1.
 # Cria os grupos so-adm e db-adm
-resource "aws_iam_group" "so-adm" {
+resource "aws_iam_group_membership" "so-adm" {
+  name = "so-adm-member"
+
+  users = [
+    aws_iam_user.user_one.name,
+    aws_iam_user.user_two.name,
+  ]
+
+  group = aws_iam_group.group.name
+}
+
+resource "aws_iam_group" "group" {
   name = "so-adm"
 }
 
-resource "aws_iam_group_policy_attachment" "so-adm-attach" {
-  group      = aws_iam_group.group.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+resource "aws_iam_user" "user_one" {
+  name = "user1"
 }
 
-resource "aws_iam_group" "db-adm" {
-  name = "db-adm"
-}
-
-resource "aws_iam_group_policy_attachment" "db-adm-attach" {
-  group      = aws_iam_group.group.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+resource "aws_iam_user" "user_two" {
+  name = "user2"
 }
 
 # Cria os usuários user1, user2 e user3
