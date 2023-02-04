@@ -64,4 +64,14 @@ resource "aws_iam_user" "user_three" {
   name = "user3"
 }
 
-# Cria os usuários user1, user2 e user3
+# Ajustar as politicas dos grupos so-adm e db-adm
+
+resource "aws_iam_group_policy_attachment" "attach_policy_group_one" {
+  group      = aws_iam_group.group_one.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
+
+resource "aws_iam_group_policy_attachment" "attach_policy_group_two" {
+  group      = aws_iam_group.group_two.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+}
