@@ -90,14 +90,40 @@ resource "aws_vpc" "xpe-vpc-mod1" {
   cidr_block = "10.1.0.0/16"
 }
 
-resource "aws_subnet" "xpe-subnet-mod1-privada" {
+resource "aws_subnet" "xpe-subnet-mod1-privada1" {
   vpc_id     = aws_vpc.xpe-vpc-mod1.id
   cidr_block = "10.1.0.0/23"
+  availability_zone = "us-east-1a"
 }
 
-resource "aws_subnet" "xpe-subnet-mod1-publica" {
+resource "aws_subnet" "xpe-subnet-mod1-privada2" {
+  vpc_id     = aws_vpc.xpe-vpc-mod1.id
+  cidr_block = "10.1.0.0/23"
+  availability_zone = "us-east-1b"
+}
+
+resource "aws_subnet" "xpe-subnet-mod1-privada3" {
+  vpc_id     = aws_vpc.xpe-vpc-mod1.id
+  cidr_block = "10.1.0.0/23"
+  availability_zone = "us-east-1c"
+}
+
+resource "aws_subnet" "xpe-subnet-mod1-publica1" {
   vpc_id     = aws_vpc.xpe-vpc-mod1.id
   cidr_block = "10.1.10.0/23"
+  availability_zone = "us-east-1a"
+}
+
+resource "aws_subnet" "xpe-subnet-mod1-publica2" {
+  vpc_id     = aws_vpc.xpe-vpc-mod1.id
+  cidr_block = "10.1.10.0/23"
+  availability_zone = "us-east-1b"
+}
+
+resource "aws_subnet" "xpe-subnet-mod1-publica3" {
+  vpc_id     = aws_vpc.xpe-vpc-mod1.id
+  cidr_block = "10.1.10.0/23"
+  availability_zone = "us-east-1c"
 }
 
 resource "aws_internet_gateway" "xpe-gw-mod1" {
@@ -113,8 +139,18 @@ resource "aws_route_table" "xpe-rt-mod1" {
   }
 }
 
-resource "aws_route_table_association" "xpe-rt-mod1-association" {
-  subnet_id      = aws_subnet.xpe-subnet-mod1-publica.id
+resource "aws_route_table_association" "xpe-rt-mod1-association1" {
+  subnet_id      = aws_subnet.xpe-subnet-mod1-publica1.id
+  route_table_id = aws_route_table.xpe-rt-mod1.id
+}
+
+resource "aws_route_table_association" "xpe-rt-mod1-association2" {
+  subnet_id      = aws_subnet.xpe-subnet-mod1-publica2.id
+  route_table_id = aws_route_table.xpe-rt-mod1.id
+}
+
+resource "aws_route_table_association" "xpe-rt-mod1-association3" {
+  subnet_id      = aws_subnet.xpe-subnet-mod1-publica3.id
   route_table_id = aws_route_table.xpe-rt-mod1.id
 }
 
