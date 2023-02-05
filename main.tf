@@ -98,13 +98,13 @@ resource "aws_subnet" "xpe-subnet-mod1-privada1" {
 
 resource "aws_subnet" "xpe-subnet-mod1-privada2" {
   vpc_id     = aws_vpc.xpe-vpc-mod1.id
-  cidr_block = "10.1.0.0/23"
+  cidr_block = "10.1.2.0/23"
   availability_zone = "us-east-1b"
 }
 
 resource "aws_subnet" "xpe-subnet-mod1-privada3" {
   vpc_id     = aws_vpc.xpe-vpc-mod1.id
-  cidr_block = "10.1.0.0/23"
+  cidr_block = "10.1.4.0/23"
   availability_zone = "us-east-1c"
 }
 
@@ -116,13 +116,13 @@ resource "aws_subnet" "xpe-subnet-mod1-publica1" {
 
 resource "aws_subnet" "xpe-subnet-mod1-publica2" {
   vpc_id     = aws_vpc.xpe-vpc-mod1.id
-  cidr_block = "10.1.10.0/23"
+  cidr_block = "10.1.12.0/23"
   availability_zone = "us-east-1b"
 }
 
 resource "aws_subnet" "xpe-subnet-mod1-publica3" {
   vpc_id     = aws_vpc.xpe-vpc-mod1.id
-  cidr_block = "10.1.10.0/23"
+  cidr_block = "10.1.14.0/23"
   availability_zone = "us-east-1c"
 }
 
