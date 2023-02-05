@@ -191,3 +191,31 @@ resource "aws_security_group" "xpe-sg-mod1" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+# Cria as instancias EC2 web1, web2 e web3.
+resource "aws_instance" "xpe-ec2-web1" {
+  ami                         = "ami-0aa7d40eeae50c9a9"
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  key_name                    = "xpe-key-ec2"
+  security_groups             = aws_security_group.xpe-sg-mod1.name
+  subnet_id                   = aws_subnet.xpe-subnet-mod1-publica1.id
+}
+
+resource "aws_instance" "xpe-ec2-web2" {
+  ami                         = "ami-0aa7d40eeae50c9a9"
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  key_name                    = "xpe-key-ec2"
+  security_groups             = aws_security_group.xpe-sg-mod1.name
+  subnet_id                   = aws_subnet.xpe-subnet-mod1-publica2.id
+}
+
+resource "aws_instance" "xpe-ec2-web3" {
+  ami                         = "ami-0aa7d40eeae50c9a9"
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  key_name                    = "xpe-key-ec2"
+  security_groups             = aws_security_group.xpe-sg-mod1.name
+  subnet_id                   = aws_subnet.xpe-subnet-mod1-publica3.id
+}
