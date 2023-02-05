@@ -157,7 +157,7 @@ resource "aws_route_table_association" "xpe-rt-mod1-association3" {
 resource "aws_security_group" "xpe-sg-mod1" {
   name        = "xpe-sg-mod1"
   description = "Controla acessos aos recursos da infra."
-  vpc_id      = aws_vpc.xpe-vpc-mod1.id
+  vpc_id      = "${aws_vpc.xpe-vpc-mod1.id}"
 
   ingress {
     description = "SSH"
