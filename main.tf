@@ -198,7 +198,7 @@ resource "aws_instance" "xpe-ec2-web1" {
   instance_type               = "t2.micro"
   associate_public_ip_address = true
   key_name                    = "xpe-key-ec2"
-  security_groups             = aws_security_group.xpe-sg-mod1.id
+  security_groups             = aws_security_group.xpe-sg-mod1.name
   subnet_id                   = aws_subnet.xpe-subnet-mod1-publica1.id
 }
 
@@ -207,7 +207,7 @@ resource "aws_instance" "xpe-ec2-web2" {
   instance_type               = "t2.micro"
   associate_public_ip_address = true
   key_name                    = "xpe-key-ec2"
-  security_groups             = aws_security_group.xpe-sg-mod1.id
+  security_groups             = aws_security_group.xpe-sg-mod1.name
   subnet_id                   = aws_subnet.xpe-subnet-mod1-publica2.id
 }
 
@@ -216,6 +216,6 @@ resource "aws_instance" "xpe-ec2-web3" {
   instance_type               = "t2.micro"
   associate_public_ip_address = true
   key_name                    = "xpe-key-ec2"
-  security_groups             = aws_security_group.xpe-sg-mod1.id
+  security_groups             = aws_security_group.xpe-sg-mod1.name
   subnet_id                   = aws_subnet.xpe-subnet-mod1-publica3.id
 }
